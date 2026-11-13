@@ -6,7 +6,8 @@
     android:orientation="horizontal"
     android:gravity="center_horizontal"
     android:padding="16dp"
-    android:background="#E21414">
+    android:background="#FFFFFF"
+    android:elevation="8dp">
 
     <Button
         android:id="@+id/logo"
@@ -32,11 +33,15 @@
                 android:text="Beranda"/>
     </LinearLayout>
 
-    <Button
-        android:id="@+id/notification"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="A"/>
+    <ImageButton
+        android:id="@+id/notificationBtn"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:src="@drawable/ic_notification"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:contentDescription="Notifications"
+        android:scaleType="centerInside"
+        android:padding="10dp" />
 
     <Button
         android:id="@+id/profile"
