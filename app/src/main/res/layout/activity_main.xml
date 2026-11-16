@@ -49,24 +49,54 @@
                 android:gravity="center"/>
         </LinearLayout>
 
+
         <LinearLayout
+            xmlns:android="http://schemas.android.com/apk/res/android"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
 
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
-
-            <TextView
-                android:layout_width="wrap_content"
+            <!-- Section header -->
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Jadwal Servis Mendatang"/>
+                android:orientation="horizontal"
+                android:gravity="center_vertical">
 
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Jadwal Servis Mendatang"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    android:textColor="#17253B"/>
 
+                <TextView
+                    android:id="@+id/btnScheduleDetails"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Rincian"
+                    android:textColor="#B84B0A"
+                    android:textStyle="bold"
+                    android:padding="8dp"
+                    android:clickable="true"
+                    android:focusable="true"/>
+
+            </LinearLayout>
+
+            <!-- Only the most urgent schedule -->
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvUpcomingSchedule"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:nestedScrollingEnabled="false"/>
 
         </LinearLayout>
-        
+
+
     </LinearLayout>
 
 </LinearLayout>
