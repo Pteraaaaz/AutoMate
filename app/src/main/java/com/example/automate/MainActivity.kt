@@ -7,6 +7,7 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import java.time.LocalDateTime
@@ -22,6 +23,7 @@ class MainActivity : AppCompatActivity() {
 
         // Load XML layout
         setContentView(R.layout.activity_main)
+        setupServices()
 
         // Handle system bars (status bar and navigation bar)
         ViewCompat.setOnApplyWindowInsetsListener(
@@ -91,4 +93,111 @@ class MainActivity : AppCompatActivity() {
             startActivity(intent)
         }
     }
+
+
+    private fun setupServices() {
+
+        val services = listOf(
+
+            Service(
+                1,
+                "Servis Rutin",
+                R.drawable.ic_service_rutin
+            ),
+
+            Service(
+                2,
+                "Oli & Filter",
+                R.drawable.ic_oil
+            ),
+
+            Service(
+                3,
+                "Rem & Ban",
+                R.drawable.ic_brakes
+            ),
+
+            Service(
+                4,
+                "AC & Listrik",
+                R.drawable.ic_ac
+            ),
+
+            Service(
+                5,
+                "Body & Cat",
+                R.drawable.ic_body
+            ),
+
+            Service(
+                6,
+                "Tune Up",
+                R.drawable.ic_tuneup
+            ),
+
+            Service(
+                7,
+                "Derek 24/7",
+                R.drawable.ic_towing,
+                isEmergency = true
+            ),
+
+            Service(
+                8,
+                "Tanya Montir",
+                R.drawable.ic_mechanic
+            )
+
+        )
+
+        val recyclerView = findViewById<RecyclerView>(
+            R.id.rvServices
+        )
+
+        // Display 4 columns
+        recyclerView.layoutManager = GridLayoutManager(
+            this,
+            4
+        )
+
+        recyclerView.adapter = ServiceAdapter(services) { service ->
+
+            when (service.id) {
+
+                1 -> startActivity(
+                    Intent(this, WorkshopActivity::class.java)
+                )
+
+                2 -> startActivity(
+                    Intent(this, WorkshopActivity::class.java)
+                )
+
+                3 -> startActivity(
+                    Intent(this, WorkshopActivity::class.java)
+                )
+
+                4 -> startActivity(
+                    Intent(this, WorkshopActivity::class.java)
+                )
+
+                5 -> startActivity(
+                    Intent(this, WorkshopActivity::class.java)
+                )
+
+                6 -> startActivity(
+                    Intent(this, WorkshopActivity::class.java)
+                )
+
+                7 -> startActivity(
+                    Intent(this, WorkshopActivity::class.java)
+                )
+
+                8 -> startActivity(
+                    Intent(this, WorkshopActivity::class.java)
+                )
+            }
+        }
+
+    }
+
 }
